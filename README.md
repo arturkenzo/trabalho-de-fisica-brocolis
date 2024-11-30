@@ -9,17 +9,39 @@ Para executar esse projeto, será necessário possuir o [Python](https://www.pyt
 ## Instalação
 - Clone o repositório
 ```
-git clone https://github.com/gustavorspires/trabalho-de-fisica-brocolis.git
-cd trabalho-de-fisica-brocolis
+$ git clone https://github.com/gustavorspires/trabalho-de-fisica-brocolis.git
+$ cd trabalho-de-fisica-brocolis
 ```
-- Crie e ative a venv
+- Ative a venv
 ```
-python3 -m venv .venv
-source .venv/bin/activate
+$ source .venv/bin/activate
 ```
 - Instale as dependências e execute o programa
 ```
-pip install -r requirements.txt
-python3 sistemaSolar.py
+$ pip install -r requirements.txt
+$ python3 sistemaSolar.py
 ```
 ## Cálculos
+### Força gravitacional
+Foi utilizada a Lei Universal da Gravitação de Newton
+
+$$ \vec{F_g} = \frac{Gm_2m_1}{||\vec{r_2} - \vec{r_1}||^2}(r_2 - r_1)$$  
+
+São somadas as forças gravitacionais de um corpo com todos os outros para adquirir a força resultante ativa nele.
+
+### Aceleração
+
+$$ \vec{a} = \frac{\vec{F_r}}{m} $$
+
+### Posição
+Foi utilizada o método de Integração de Verlet para o cálculo da trajetória dos astros:
+
+$$\vec r(t+\Delta t) = 2\vec r(t) - \vec r(t-\Delta t) + \vec a(t)\Delta t^2 $$
+
+### Velocidade inicial
+O versor da velocidade inicial dos astros é sempre calculado como o vetor perpendicular no sentido horário, o modulo é dado por:
+
+$$ mv^2 = \frac{GMm}{d^2} \therefore v = \sqrt{\frac{GM}{d^2}} $$
+
+
+
